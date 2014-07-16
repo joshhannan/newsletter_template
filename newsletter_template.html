@@ -1,0 +1,67 @@
+<section class="newsletter_template block">
+	<div class="quarter sidebar">
+		<h1>Newsletter Sidebar</h1>
+		<a class="add_new" href="#">Add New Section</a>
+		<select data-placeholder="Select a Section Type">
+			<option value="image">Image Block</option>
+			<option value="image_text">Image and Text Block</option>
+			<option value="Option 3">Option 3</option>
+			<option value="Option 4">Option 4</option>
+			<option value="Option 5">Option 5</option>
+			<option value="Option 6">Option 6</option>
+			<option value="Option 7">Option 7</option>
+		</select>
+		<div class="existing_sections">
+			<p class="default">No sections yet.</p>
+		</div><!--/existing_sections-->
+	</div><!--/sidebar-->
+	<div class="three_quarters template_view"></div><!--/template_view-->
+</section><!--/block-->
+<script>
+	$(function(){
+		$('select').select_it();
+		$('.newsletter_template .sidebar .select_it').addClass('hidden');
+		$('.add_new').click(function() {
+			$('.newsletter_template .sidebar .select_it').removeClass('hidden');
+		});
+		$('.newsletter_template .sidebar select').change(function() {
+			console.log('testing');
+		});
+		$('.select_it .select_it_box').click(function(e) {
+			e.stopPropagation();
+			current = $(this).parents('.select_it').attr('id');
+		});
+		$('.select_it ul li').click(function(e) {
+			e.stopPropagation();
+			current = $(this).parents('.select_it').attr('id');
+			selected = $(this).attr('value');
+			selected_text = $(this).html();
+			$('.template_view').newsletter_builder({
+				block_type: $(this).attr('value')
+			});
+		});
+	});
+
+	(function($) {
+		$.fn.newsletter_builder = function( options ) {
+			var settings = $.extend({
+				block_type: image
+			}, options );
+			var object = $(this);
+			var html_test;
+			$(this).each(function() {
+				html_test = $(this).html();
+				if( html_test.length == 0 ) {
+					console.log('nothing here!');
+				} else {
+					console.log('something is in here!');
+				}
+				if( settings.block_type == image ) {
+					console.log('BOOM!');
+				}
+				//$(this).html()
+			});
+			return this;
+		}; //  END NEWSLETTER_BUILDER FUNCTION
+	}(jQuery));
+</script>

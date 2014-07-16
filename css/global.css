@@ -152,43 +152,149 @@ ul li {
     width: 90%;
     margin: 0 5%; }
 
+.hidden {
+  display: none; }
+
+/**===========================================================================
+	SELECT_IT
+===========================================================================**/
+.select_it {
+  width: 80%;
+  margin: 0 10% 25px;
+  float: left; }
+  .select_it .select_it_box {
+    background: #FFFFFF;
+    width: 90%;
+    padding: 5%;
+    color: #666666;
+    cursor: pointer; }
+  .select_it ul {
+    background: #FFFFFF;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #666666;
+    list-style: none inside none; }
+    .select_it ul li {
+      width: 90%;
+      padding: 0 5%;
+      cursor: pointer; }
+      .select_it ul li:hover {
+        background: #666666;
+        color: #FFFFFF; }
+
+/**===========================================================================
+	OVERLAY_IT
+===========================================================================**/
+.overlay_it_container {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/opacity_bg.png") repeat; }
+  .overlay_it_container .overlay_it_box {
+    background: #FFFFFF;
+    position: absolute;
+    padding: 15px;
+    top: 15%;
+    width: auto;
+    left: 10%;
+    right: 10%;
+    bottom: 15%;
+    border-radius: 4px;
+    min-width: 300px;
+    min-height: 150px;
+    overflow: hidden; }
+    .overlay_it_container .overlay_it_box .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: 1px solid #000000; }
+    .overlay_it_container .overlay_it_box .body {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0; }
+      .overlay_it_container .overlay_it_box .body .newsletter_template {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
+        .overlay_it_container .overlay_it_box .body .newsletter_template .sidebar {
+          background: #AA9839;
+          position: absolute;
+          padding: 25px;
+          box-sizing: border-box;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          text-align: center;
+          overflow: scroll; }
+          .overlay_it_container .overlay_it_box .body .newsletter_template .sidebar h1 {
+            text-align: center; }
+          .overlay_it_container .overlay_it_box .body .newsletter_template .sidebar .add_new {
+            display: inline-block;
+            zoom: 1;
+            *display: inline;
+            margin: 0 auto 25px; }
+        .overlay_it_container .overlay_it_box .body .newsletter_template .template_view {
+          background: #AA6F39;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          overflow: scroll; }
+
 /**===========================================================================
 	GENERIC SETUP
 ===========================================================================**/
+/*
 body {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
 .newsletter_template {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-  .newsletter_template .sidebar {
-    background: #AA9839;
-    position: fixed;
-    padding: 25px 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    text-align: center; }
-    .newsletter_template .sidebar h1 {
-      text-align: center; }
-    .newsletter_template .sidebar .add_new {
-      display: inline-block;
-      zoom: 1;
-      *display: inline;
-      margin: 0 auto; }
-  .newsletter_template .template_view {
-    background: #AA6F39;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: scroll; }
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	.sidebar {
+		background: #AA9839;
+		position: fixed;
+		padding: 25px 0;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+		h1 {
+			text-align: center;
+		}
+		.add_new {
+			display: inline-block;
+			zoom: 1;
+			*display: inline;
+			margin: 0 auto;
+		}
+	}
+	.template_view {
+		background: #AA6F39;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		overflow: scroll;
+	}
+}
+*/
