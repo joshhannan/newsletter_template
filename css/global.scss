@@ -147,6 +147,9 @@ $arial: "Arial", sans-serif;
 					right: 0;
 					bottom: 0;
 					overflow: scroll;
+					table {
+						margin: 0 auto;
+					}
 				}
 			}
 		}

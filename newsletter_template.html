@@ -19,13 +19,11 @@
 </section><!--/block-->
 <script>
 	$(function(){
+		var selected;
 		$('select').select_it();
 		$('.newsletter_template .sidebar .select_it').addClass('hidden');
 		$('.add_new').click(function() {
 			$('.newsletter_template .sidebar .select_it').removeClass('hidden');
-		});
-		$('.newsletter_template .sidebar select').change(function() {
-			console.log('testing');
 		});
 		$('.select_it .select_it_box').click(function(e) {
 			e.stopPropagation();
@@ -35,9 +33,10 @@
 			e.stopPropagation();
 			current = $(this).parents('.select_it').attr('id');
 			selected = $(this).attr('value');
+			console.log(selected);
 			selected_text = $(this).html();
 			$('.template_view').newsletter_builder({
-				block_type: $(this).attr('value')
+				block_type: selected
 			});
 		});
 	});
@@ -45,21 +44,28 @@
 	(function($) {
 		$.fn.newsletter_builder = function( options ) {
 			var settings = $.extend({
-				block_type: image
+				block_type: 'image'
 			}, options );
 			var object = $(this);
 			var html_test;
+			var html_content = '';
+			var image_block_content;
 			$(this).each(function() {
 				html_test = $(this).html();
-				if( html_test.length == 0 ) {
-					console.log('nothing here!');
-				} else {
-					console.log('something is in here!');
+				if( html_test.length != 0 ) {
+					html_content = $(this).find('table').html();
+					console.log(html_content);
 				}
-				if( settings.block_type == image ) {
-					console.log('BOOM!');
+				if( settings.block_type == 'image' ) {
+					image_block_content = '<tr><td><img src="http://placehold.it/1000x200" /></td></tr>';
+					html_content = html_content+image_block_content;
 				}
-				//$(this).html()
+				if( settings.block_type == 'image_text' ) {
+					image_block_content = '<tr><td><img src="http://placehold.it/500x100" /></td><td><h3>Sample Title</h3><p>Sample Text</p></td></tr>'
+					html_content = html_content+image_block_content;
+				}
+				html_content = '<table>'+html_content+'</table>';
+				$(this).html(html_content);
 			});
 			return this;
 		}; //  END NEWSLETTER_BUILDER FUNCTION

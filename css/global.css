@@ -250,6 +250,8 @@ ul li {
           right: 0;
           bottom: 0;
           overflow: scroll; }
+          .overlay_it_container .overlay_it_box .body .newsletter_template .template_view table {
+            margin: 0 auto; }
 
 /**===========================================================================
 	GENERIC SETUP
